@@ -1,10 +1,14 @@
-ResponsiveNav = function(nav, breakPoint) 
+ResponsiveNav = function(nav) 
 {   
 	//varibles
+    var breakPoint = 500;
 	var width = $(document).width();
-
+	
+	//add open class to nav
+	nav.addClass("open");
+	
 	//add nav controls
-	var navControl = $("<li class='navControls'/>").prependTo(nav.find("ul").first());
+	var navControl = $("<div class='navControl'/>").prependTo(nav);
     var navControlLink = $('<a/>', {
         "text": "Navigation",
         click: function() {
@@ -26,17 +30,35 @@ ResponsiveNav = function(nav, breakPoint)
     {
     	if(width > breakPoint)
     	{
-    		$("navControls").hide();
+    	    navControl.hide();
+    	    
+    	    //if nav is hidden, open it
+    	    if(!nav.hasClass("open"))
+    	    {
+    	        nav.find("ul").first().css("display", "block");
+    	        nav.addClass("open");
+    	    }
     	}
     	else {
-    		$("navControls").show();
+    	    navControl.show();
+    	    
+    	    //if nav is show, hide it
+            if(nav.hasClass("open"))
+            {
+                nav.find("ul").first().css("display", "none");
+                nav.removeClass("open");
+            }
     	}
     }
 	
 	//open or close nav
     function toggleNav()
     {
-    	alert("nav toggle");
+        //toggle open class
+        nav.toggleClass("open");
+        
+        //open or close nav
+        nav.find("ul").first().slideToggle();
     }
 };
 
@@ -44,6 +66,6 @@ $(function()
 {
     $(".nav").each(function()
     {
-        new ResponsiveNav($(this), 500);
+        new ResponsiveNav($(this));
     });
 });
