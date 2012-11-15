@@ -91,11 +91,9 @@
 	}
 	
 	.nav .dropDown {
-	    width: 100%;
-	    background: #333;
 	    display: none;
 	    
-	    text-align: left;
+	    background: #333;
 	    
         position: absolute;
         top: 100%;
@@ -109,6 +107,9 @@
     .nav .dropDown a {
         padding: 10px;
         margin-right: 0;
+        
+        white-space: nowrap;
+        text-align: left;
     }
     
     .nav a:hover + .dropDown,
