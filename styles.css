@@ -35,6 +35,8 @@
 
 .nav li {
 	display: block;
+	
+	position: relative;
 }
 
 .nav a {
@@ -51,6 +53,30 @@
 	color: #ccc;
 }
 
+.nav .dropDown {
+    text-align: center;
+    
+    position: relative;
+    top: -10px;
+}
+
+.nav .dropDown li {
+	margin: 0;
+	display: inline-block;
+}
+
+.nav .dropDown a {
+    padding: 0;
+    border-right: 0;
+    margin-right: 10px;
+    
+    font-size: 0.8em;
+}
+
+.nav .dropDown li:last-child a {
+    margin-right: 0;
+}
+
 
 
 
@@ -63,4 +89,30 @@
 		margin-right: -4px;
 		display: inline-block;
 	}
+	
+	.nav .dropDown {
+	    width: 100%;
+	    background: #333;
+	    display: none;
+	    
+	    text-align: left;
+	    
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+    
+    .nav .dropDown li {
+        display: block;
+    }
+    
+    .nav .dropDown a {
+        padding: 10px;
+        margin-right: 0;
+    }
+    
+    .nav a:hover + .dropDown,
+    .nav .dropDown:hover {
+        display: block;
+    }
 }
