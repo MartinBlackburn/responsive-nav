@@ -41,7 +41,6 @@
 
 .nav a {
 	padding: 10px 20px;
-	border-right: 1px solid #555;
 	display: block;
 	
 	color: #fff;
@@ -88,6 +87,10 @@
 	.nav li {
 		margin-right: -4px;
 		display: inline-block;
+	}
+	
+	.nav a {
+	   border-right: 1px solid #555;
 	}
 	
 	.nav .dropDown {
