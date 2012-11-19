@@ -37,11 +37,12 @@
 	display: block;
 	
 	position: relative;
+	
+	z-index: 1;
 }
 
 .nav a {
 	padding: 10px 20px;
-	border-right: 1px solid #555;
 	display: block;
 	
 	color: #fff;
@@ -51,6 +52,10 @@
 
 .nav a:hover {
 	color: #ccc;
+}
+
+.nav span {
+    display: none;
 }
 
 .nav .dropDown {
@@ -90,6 +95,10 @@
 		display: inline-block;
 	}
 	
+	.nav a {
+	   border-right: 1px solid #555;
+	}
+	
 	.nav .dropDown {
 	    display: none;
 	    
@@ -110,6 +119,13 @@
         
         white-space: nowrap;
         text-align: left;
+    }
+    
+    .nav span {
+        display: inline;
+        
+        position: relative;
+        left: 5px;
     }
     
     .nav a:hover + .dropDown,
