@@ -54,6 +54,10 @@
 	color: #ccc;
 }
 
+.nav span {
+    display: none;
+}
+
 .nav .dropDown {
     text-align: center;
     
@@ -115,6 +119,13 @@
         
         white-space: nowrap;
         text-align: left;
+    }
+    
+    .nav span {
+        display: inline;
+        
+        position: relative;
+        left: 5px;
     }
     
     .nav a:hover + .dropDown,
