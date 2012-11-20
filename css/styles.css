@@ -18,6 +18,15 @@
     margin: 0 auto;
 }
 
+.textContainer {
+    padding-top: 20px;
+    
+    text-align: center;
+}
+
+.textContainer a {
+	color: #333;
+}
 
 
 
