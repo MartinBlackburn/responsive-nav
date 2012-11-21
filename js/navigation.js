@@ -28,7 +28,7 @@ ResponsiveNav = function(nav)
 	//hide or show nav controls depending on breakpoint
     function checkNav()
     {
-    	if(width > breakPoint)
+    	if(width >= breakPoint)
     	{
     	    navControl.hide();
     	    
