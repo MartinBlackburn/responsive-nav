@@ -6,10 +6,10 @@ A navigation, with dropdowns, that turns to a collapsible dropdown on a small sc
 
 1. Add the jQuery Library:
 ```html
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 ```
 
-2. Add the JS and CSS, EG:
+2. Add the JS and CSS:
 ```html
     <!-- Put these into the <head> -->
     <script src="js/navigation.js"></script>
