@@ -1,24 +1,24 @@
-ResponsiveNav = function(nav) 
+ResponsiveNav = function(nav, breakPoint) 
 {   
-	//varibles
-    var breakPoint = 500;
+    //if no nav container, output an error
+    if(typeof nav === "undefined")
+    {  
+        console.log("The nav container needs setting.");
+        return false;
+    }
+    
+	//variables
+    var breakPoint = (typeof breakPoint != "number") ? 500 : breakPoint;
 	var width = $(document).width();
 	var lastWidth = null;
+	var menuText = "Navigation";
 	
 	//add open class to nav
 	nav.addClass("open");
 	
 	//add nav controls
 	var navControl = $("<div class='navControl'/>").prependTo(nav);
-    var navControlLink = $('<a/>', {
-        "text": "Navigation",
-        click: function() {
-            toggleNav();
-        }
-    }).prependTo(navControl);
-    
-    //check if to hide or show controls
- 	checkNav();
+    var navControlLink = $('<a/>', { "text": menuText }).prependTo(navControl);
 	
 	//listener for screen width
 	$(window).resize(function() {
@@ -26,6 +26,14 @@ ResponsiveNav = function(nav)
 		checkNav();
 		lastWidth = width;
 	});
+	
+	//toggle nav when nav controls are clicked
+	navControl.on('click', function() {
+        toggleNav();
+    });
+	
+	//check if to hide or show controls
+    checkNav();
 	
 	//hide or show nav controls depending on breakpoint
     function checkNav()
@@ -71,6 +79,6 @@ $(function()
 {
     $(".nav").each(function()
     {
-        new ResponsiveNav($(this));
+        new ResponsiveNav($(this), 500);
     });
 });
