@@ -74,11 +74,3 @@ ResponsiveNav = function(nav, breakPoint)
         nav.find("ul").first().slideToggle();
     }
 };
-
-$(function() 
-{
-    $(".nav").each(function()
-    {
-        new ResponsiveNav($(this), 500);
-    });
-});
