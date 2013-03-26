@@ -42,8 +42,10 @@ A navigation, with dropdowns, that turns to a collapsible dropdown on a small sc
     <script>
         $(function() 
         {
+            //for each .nav create a responsive version
             $(".nav").each(function()
             {
+                //pass the nav element and set the break point.
                 new ResponsiveNav($(this), 500);
             });
         });
