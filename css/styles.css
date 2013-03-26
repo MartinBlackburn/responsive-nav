@@ -38,6 +38,10 @@
 	background: #333;
 }
 
+.nav .navControl {
+	cursor: pointer;
+}
+
 .nav ul {
 	list-style: none;
 }
