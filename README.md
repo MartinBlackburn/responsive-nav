@@ -20,10 +20,18 @@ A navigation, with dropdowns, that turns to a collapsible dropdown on a small sc
 ```html
     <div class="nav">
         <ul>
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="active"><a href="#">Link</a>
+            <li>
+                <a href="">Link <span>&#9662;</span></a>
+                    <ul class="dropDown">
+                        <li><a href="">Sub link</a>
+                        <li><a href="">Sub link</a>
+                        <li><a href="">Long long sub link</a>
+                        <li><a href="">Sub link</a>
+                        <li><a href="">Sub link</a>
+                    </ul>
+            <li><a href="#">Link</a>
+            <li><a href="#">Link</a>
         </ul>
     </div>
 ```
