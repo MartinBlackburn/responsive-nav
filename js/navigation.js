@@ -47,7 +47,7 @@ ResponsiveNav = function(nav, breakPoint)
         	    //if nav is hidden, open it
         	    if(!nav.hasClass("open"))
         	    {
-        	        mainUL.css("display", "block");
+        	        mainUL.show();
         	        nav.addClass("open");
         	    }
         	}
@@ -57,7 +57,7 @@ ResponsiveNav = function(nav, breakPoint)
         	    //if nav is shown, hide it
                 if(nav.hasClass("open"))
                 {
-                    mainUL.css("display", "none");
+                    mainUL.hide();
                     nav.removeClass("open");
                 }
         	}
