@@ -7,70 +7,110 @@ ResponsiveNav = function(nav, breakPoint)
         return false;
     }
     
+    //elements
+    var navControl = nav.find(".navControl").first();
+    var mainUL = nav.find("ul").first();
+    var mainLIs = mainUL.children();
+    var extraLI = $("<li class='extraDropdown'><a href='#'>More <span>&#9662;</span></a>");
+    var extraDropdown = $("<ul class='dropdown'></ul>");    
+    extraLI.append(extraDropdown);
+    
 	//variables
     var breakPoint = (typeof breakPoint != "number") ? 500 : breakPoint;
-	var width = $(document).width();
-	var lastWidth = null;
-	var menuText = "Navigation";
-	
-	//add open class to nav
-	nav.addClass("open");
-	
-	//add nav controls
-	var navControl = $("<div class='navControl'/>").prependTo(nav);
-    var navControlLink = $('<a/>', { "text": menuText }).prependTo(navControl);
+	var siteWidth = $(document).width();
+	var lastSiteWidth = null;
+	var navWidth = mainUL.width();
+	var usingExtraDropdown = false;
 	
 	//listener for screen width
 	$(window).resize(function() {
-		width = $(document).width();
-		checkNav();
-		lastWidth = width;
+		siteWidth = $(document).width();
+		navWidth = mainUL.width();
+		checkNavType();
+		lastSiteWidth = siteWidth;
 	});
 	
-	//toggle nav when nav controls are clicked
+	//toggle nav when nav control is clicked
 	navControl.on('click', function() {
+	    event.preventDefault();
         toggleNav();
     });
 	
-	//check if to hide or show controls
-    checkNav();
-	
-	//hide or show nav controls depending on breakpoint
-    function checkNav()
+	//check if to use mobile nav or not
+    checkNavType();
+    
+    //added a extra dropdown if not already there
+    function addExtraDropdown()
     {
-        if(width != lastWidth)
+        if (!usingExtraDropdown) {
+            usingExtraDropdown = true;
+            mainUL.append(extraLI);
+        }
+    }
+    
+    //make sure the LIs fit into the nav
+    function checkLIsFit()
+    {
+        var widthLIs = 0;
+        
+        mainLIs = mainUL.children();
+        
+        mainLIs.each(function() {
+            widthLIs += $(this).outerWidth(true);
+        });
+        
+        //need a dropdown
+        if(widthLIs > navWidth) {
+            addExtraDropdown();
+            moveLI();
+        }
+    }
+    
+    //move LIs to the extra dropdown from main nav
+    function moveLI()
+    {
+        mainLIs = mainUL.children().not(".extraDropdown");
+        
+        extraDropdown.prepend(mainLIs.last());
+        
+        checkLIsFit();
+    }
+    
+    //move all LIs from extra dropdown back to the nav
+    function resetExtraDropdown()
+    {
+        usingExtraDropdown = false;
+        
+        var LIsToMove = extraDropdown.children();
+        
+        mainUL.find(".extraDropdown").remove();
+        
+        mainUL.append(LIsToMove);
+    }
+	
+    //check if to use mobile nav or not
+    function checkNavType()
+    {
+        if(siteWidth != lastSiteWidth)
         {
-        	if(width >= breakPoint)
+        	if(siteWidth >= breakPoint)
         	{
         	    navControl.hide();
-        	    
-        	    //if nav is hidden, open it
-        	    if(!nav.hasClass("open"))
-        	    {
-        	        nav.find("ul").first().css("display", "block");
-        	        nav.addClass("open");
-        	    }
+        	    mainUL.show();
         	}
         	else {
         	    navControl.show();
-        	    
-        	    //if nav is shown, hide it
-                if(nav.hasClass("open"))
-                {
-                    nav.find("ul").first().css("display", "none");
-                    nav.removeClass("open");
-                }
+        	    mainUL.hide();
         	}
+        	
+        	resetExtraDropdown();
+        	checkLIsFit();
         }
     }
 	
 	//open or close nav
     function toggleNav()
-    {
-        //toggle open class
-        nav.toggleClass("open");
-        
-        //open or close nav
-        nav.find("ul").first().slideToggle();
+    {   
+        mainUL.slideToggle();
     }
 };

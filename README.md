@@ -2,6 +2,8 @@
 
 A navigation, with dropdowns, that turns to a collapsible dropdown on a small screen.
 
+The navigation will also move some items to a dropdown when they don't fit onto the nav, and move them back again when they do.
+
 ##Usage instructions
 
 1. Add the jQuery Library:
@@ -19,6 +21,10 @@ A navigation, with dropdowns, that turns to a collapsible dropdown on a small sc
 3. Add markup:
 ```html
     <div class="nav">
+        <div class="navControl">
+            <a href="#">Navigation</a>
+        </div>
+            
         <ul>
             <li class="active"><a href="#">Link</a>
             <li>

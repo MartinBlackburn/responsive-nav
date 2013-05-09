@@ -10,49 +10,44 @@
     
     <!-- JS Lib -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    
-    <!--  Analytics -->
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-38705814-1']);
-        _gaq.push(['_trackPageview', '/github/responsive-nav']);
-        
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();   
-    </script>
 </head>
 <body>
     <div class="pageContainer">
     	<div class="nav">
+			<div class="navControl">
+			    <a href="#">Navigation</a>
+			</div>
+    	   
     		<ul>
     			<li>
-                    <a href="">Link <span>&#9662;</span></a>
-                    <ul class="dropDown">
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Long long sub link</a>
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
+                    <a href="">Link 1 <span>&#9662;</span></a>
+                    <ul class="dropdown">
+                        <li><a href="">Sub link 1</a>
+                        <li><a href="">Sub link 2</a>
+                        <li><a href="">Sub link 3</a>
+                        <li><a href="">Sub link 4</a>
+                        <li><a href="">Sub link 5</a>
+                        <li><a href="">Sub link 6</a>
+                        <li><a href="">Sub link 7</a>
+                        <li><a href="">Sub link 8</a>
                     </ul>                
     			<li>
-                    <a href="">Link <span>&#9662;</span></a>
-                    <ul class="dropDown">
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
-                        <li><a href="">Sub link</a>
+                    <a href="">Link 2 <span>&#9662;</span></a>
+                    <ul class="dropdown">
+                        <li><a href="">Sub link 1</a>
+                        <li><a href="">Sub link 2</a>
+                        <li><a href="">Sub link 3</a>
+                        <li><a href="">Sub link 4</a>
                     </ul>                
-    			<li><a href="">Link</a>
-    			<li><a href="">Link</a>
-    			<li><a href="">Link</a>
-    			<li><a href="">Link</a>
+    			<li><a href="">Link 3</a>
+    			<li><a href="">Link 4</a>
+    			<li><a href="">Link 5</a>
+    			<li><a href="">Link 6</a>
+    			<li><a href="">Link 7</a>
+                <li><a href="">Link 8</a>
+                <li><a href="">Link 9</a>
+                <li><a href="">Link 10</a>
+                <li><a href="">Link 11</a>
     		</ul>
     	</div>
     	
@@ -68,7 +63,7 @@
         {
             $(".nav").each(function()
             {
-                new ResponsiveNav($(this), 500);
+                new ResponsiveNav($(this), 600);
             });
         });
     </script>
