@@ -11,13 +11,13 @@ ResponsiveNav = function(nav, breakPoint)
     var breakPoint = (typeof breakPoint != "number") ? 500 : breakPoint;
 	var width = $(document).width();
 	var lastWidth = null;
-	var menuText = "Navigation";
+	
+	//elements
+	var navControl = nav.find(".navControl").first();
+	var mainUL = nav.find("ul").first();
 	
 	//add open class to nav
 	nav.addClass("open");
-	
-	//add nav controls
-	var navControl = nav.find(".navControl").first();
 	
 	//listener for screen width
 	$(window).resize(function() {
@@ -47,7 +47,7 @@ ResponsiveNav = function(nav, breakPoint)
         	    //if nav is hidden, open it
         	    if(!nav.hasClass("open"))
         	    {
-        	        nav.find("ul").first().css("display", "block");
+        	        mainUL.css("display", "block");
         	        nav.addClass("open");
         	    }
         	}
@@ -57,7 +57,7 @@ ResponsiveNav = function(nav, breakPoint)
         	    //if nav is shown, hide it
                 if(nav.hasClass("open"))
                 {
-                    nav.find("ul").first().css("display", "none");
+                    mainUL.css("display", "none");
                     nav.removeClass("open");
                 }
         	}
@@ -71,6 +71,6 @@ ResponsiveNav = function(nav, breakPoint)
         nav.toggleClass("open");
         
         //open or close nav
-        nav.find("ul").first().slideToggle();
+        mainUL.slideToggle();
     }
 };
