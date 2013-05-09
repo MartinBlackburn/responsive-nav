@@ -66,14 +66,26 @@ ResponsiveNav = function(nav, breakPoint)
         }
     }
     
-    //move LIs to the extra dropdown
+    //move LIs to the extra dropdown from main nav
     function moveLI()
     {
         mainLIs = mainUL.children().not(".extraDropdown");
         
-        extraDropdown.append(mainLIs.last());
+        extraDropdown.prepend(mainLIs.last());
         
         checkLIsFit();
+    }
+    
+    //move all LIs from extra dropdown back to the nav
+    function resetExtraDropdown()
+    {
+        usingExtraDropdown = false;
+        
+        var LIsToMove = extraDropdown.children();
+        
+        mainUL.find(".extraDropdown").remove();
+        
+        mainUL.append(LIsToMove);
     }
 	
     //check if to use mobile nav or not
@@ -85,12 +97,14 @@ ResponsiveNav = function(nav, breakPoint)
         	{
         	    navControl.hide();
         	    mainUL.show();
-        	    checkLIsFit();
         	}
         	else {
         	    navControl.show();
         	    mainUL.hide();
         	}
+        	
+        	resetExtraDropdown();
+        	checkLIsFit();
         }
     }
 	
