@@ -7,18 +7,25 @@ ResponsiveNav = function(nav, breakPoint)
         return false;
     }
     
+    //elements
+    var navControl = nav.find(".navControl").first();
+    var mainUL = nav.find("ul").first();
+    var mainLIs = mainUL.children();
+    var extraLI = $("<li class='extraDropdown'><a href='#'>More <span>&#9662;</span></a>");
+    var extraDropdown = $("<ul class='dropdown'></ul>");    
+    extraLI.append(extraDropdown);
+    
 	//variables
     var breakPoint = (typeof breakPoint != "number") ? 500 : breakPoint;
 	var siteWidth = $(document).width();
 	var lastSiteWidth = null;
-	
-	//elements
-	var navControl = nav.find(".navControl").first();
-	var mainUL = nav.find("ul").first();
+	var navWidth = mainUL.width();
+	var usingExtraDropdown = false;
 	
 	//listener for screen width
 	$(window).resize(function() {
 		siteWidth = $(document).width();
+		navWidth = mainUL.width();
 		checkNavType();
 		lastSiteWidth = siteWidth;
 	});
@@ -31,6 +38,43 @@ ResponsiveNav = function(nav, breakPoint)
 	
 	//check if to use mobile nav or not
     checkNavType();
+    
+    //added a extra dropdown if not already there
+    function addExtraDropdown()
+    {
+        if (!usingExtraDropdown) {
+            usingExtraDropdown = true;
+            mainUL.append(extraLI);
+        }
+    }
+    
+    //make sure the LIs fit into the nav
+    function checkLIsFit()
+    {
+        var widthLIs = 0;
+        
+        mainLIs = mainUL.children();
+        
+        mainLIs.each(function() {
+            widthLIs += $(this).outerWidth(true);
+        });
+        
+        //need a dropdown
+        if(widthLIs > navWidth) {
+            addExtraDropdown();
+            moveLI();
+        }
+    }
+    
+    //move LIs to the extra dropdown
+    function moveLI()
+    {
+        mainLIs = mainUL.children().not(".extraDropdown");
+        
+        extraDropdown.append(mainLIs.last());
+        
+        checkLIsFit();
+    }
 	
     //check if to use mobile nav or not
     function checkNavType()
@@ -41,6 +85,7 @@ ResponsiveNav = function(nav, breakPoint)
         	{
         	    navControl.hide();
         	    mainUL.show();
+        	    checkLIsFit();
         	}
         	else {
         	    navControl.show();
