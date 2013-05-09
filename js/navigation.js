@@ -9,8 +9,8 @@ ResponsiveNav = function(nav, breakPoint)
     
 	//variables
     var breakPoint = (typeof breakPoint != "number") ? 500 : breakPoint;
-	var width = $(document).width();
-	var lastWidth = null;
+	var siteWidth = $(document).width();
+	var lastSiteWidth = null;
 	
 	//elements
 	var navControl = nav.find(".navControl").first();
@@ -18,9 +18,9 @@ ResponsiveNav = function(nav, breakPoint)
 	
 	//listener for screen width
 	$(window).resize(function() {
-		width = $(document).width();
+		siteWidth = $(document).width();
 		checkNav();
-		lastWidth = width;
+		lastSiteWidth = siteWidth;
 	});
 	
 	//toggle nav when nav controls are clicked
@@ -35,9 +35,9 @@ ResponsiveNav = function(nav, breakPoint)
 	//hide or show nav controls depending on breakpoint
     function checkNav()
     {
-        if(width != lastWidth)
+        if(siteWidth != lastSiteWidth)
         {
-        	if(width >= breakPoint)
+        	if(siteWidth >= breakPoint)
         	{
         	    navControl.hide();
         	    mainUL.show();
