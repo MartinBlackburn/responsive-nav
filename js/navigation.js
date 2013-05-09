@@ -23,7 +23,7 @@ ResponsiveNav = function(nav, breakPoint)
 		lastSiteWidth = siteWidth;
 	});
 	
-	//toggle nav when nav controls are clicked
+	//toggle nav when nav control is clicked
 	navControl.on('click', function() {
 	    event.preventDefault();
         toggleNav();
@@ -32,7 +32,7 @@ ResponsiveNav = function(nav, breakPoint)
 	//check if to hide or show controls
     checkNav();
 	
-	//hide or show nav controls depending on breakpoint
+	//hide or show nav controls depending on size
     function checkNav()
     {
         if(siteWidth != lastSiteWidth)
@@ -51,8 +51,7 @@ ResponsiveNav = function(nav, breakPoint)
 	
 	//open or close nav
     function toggleNav()
-    {        
-        //open or close nav
+    {   
         mainUL.slideToggle();
     }
 };
