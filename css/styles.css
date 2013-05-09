@@ -39,6 +39,8 @@
 }
 
 .nav .navControl {
+	display: none;
+	
 	cursor: pointer;
 }
 

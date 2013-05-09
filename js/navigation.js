@@ -17,8 +17,7 @@ ResponsiveNav = function(nav, breakPoint)
 	nav.addClass("open");
 	
 	//add nav controls
-	var navControl = $("<div class='navControl'/>").prependTo(nav);
-    var navControlLink = $('<a/>', { "text": menuText }).prependTo(navControl);
+	var navControl = nav.find(".navControl").first();
 	
 	//listener for screen width
 	$(window).resize(function() {
@@ -29,6 +28,7 @@ ResponsiveNav = function(nav, breakPoint)
 	
 	//toggle nav when nav controls are clicked
 	navControl.on('click', function() {
+	    event.preventDefault();
         toggleNav();
     });
 	
