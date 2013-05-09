@@ -19,7 +19,7 @@ ResponsiveNav = function(nav, breakPoint)
 	//listener for screen width
 	$(window).resize(function() {
 		siteWidth = $(document).width();
-		checkNav();
+		checkNavType();
 		lastSiteWidth = siteWidth;
 	});
 	
@@ -29,11 +29,11 @@ ResponsiveNav = function(nav, breakPoint)
         toggleNav();
     });
 	
-	//check if to hide or show controls
-    checkNav();
+	//check if to use mobile nav or not
+    checkNavType();
 	
-	//hide or show nav controls depending on size
-    function checkNav()
+    //check if to use mobile nav or not
+    function checkNavType()
     {
         if(siteWidth != lastSiteWidth)
         {
