@@ -4,6 +4,8 @@ A navigation, with dropdowns, that turns to a collapsible dropdown on a small sc
 
 The navigation will also move some items to a dropdown when they don't fit onto the nav, and move them back again when they do.
 
+Feel free to use this in any of your own projects (commercial or not), just be kind and link back here, or my site :)
+
 ##Usage instructions
 
 1. Add the jQuery Library:
