@@ -16,9 +16,6 @@ ResponsiveNav = function(nav, breakPoint)
 	var navControl = nav.find(".navControl").first();
 	var mainUL = nav.find("ul").first();
 	
-	//add open class to nav
-	nav.addClass("open");
-	
 	//listener for screen width
 	$(window).resize(function() {
 		width = $(document).width();
@@ -43,33 +40,18 @@ ResponsiveNav = function(nav, breakPoint)
         	if(width >= breakPoint)
         	{
         	    navControl.hide();
-        	    
-        	    //if nav is hidden, open it
-        	    if(!nav.hasClass("open"))
-        	    {
-        	        mainUL.show();
-        	        nav.addClass("open");
-        	    }
+        	    mainUL.show();
         	}
         	else {
         	    navControl.show();
-        	    
-        	    //if nav is shown, hide it
-                if(nav.hasClass("open"))
-                {
-                    mainUL.hide();
-                    nav.removeClass("open");
-                }
+        	    mainUL.hide();
         	}
         }
     }
 	
 	//open or close nav
     function toggleNav()
-    {
-        //toggle open class
-        nav.toggleClass("open");
-        
+    {        
         //open or close nav
         mainUL.slideToggle();
     }
