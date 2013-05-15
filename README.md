@@ -31,7 +31,7 @@ Feel free to use this in any of your own projects (commercial or not), just be k
             <li class="active"><a href="#">Link</a>
             <li>
                 <a href="">Link <span>&#9662;</span></a>
-                    <ul class="dropDown">
+                    <ul class="dropdown">
                         <li><a href="">Sub link</a>
                         <li><a href="">Sub link</a>
                         <li><a href="">Long long sub link</a>
