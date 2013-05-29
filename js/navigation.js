@@ -38,7 +38,7 @@ ResponsiveNav = function(nav, breakPoint)
 	});
 	
 	//toggle nav when nav control is clicked
-	navControl.on('click', function() {
+	navControl.on('click', function(event) {
 	    event.preventDefault();
         toggleNav();
     });
