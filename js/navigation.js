@@ -1,3 +1,10 @@
+/*
+Responsive navigation written by Martin Blackburn.
+www.martinblackburn.co.uk
+
+Freel free to use this for your own projects, just be nice and link back here, or my site :)
+*/
+
 ResponsiveNav = function(nav, breakPoint) 
 {   
     //if no nav container, output an error
@@ -15,28 +22,28 @@ ResponsiveNav = function(nav, breakPoint)
     var extraDropdown = $("<ul class='dropdown'></ul>");    
     extraLI.append(extraDropdown);
     
-	//variables
+    //variables
     var breakPoint = (typeof breakPoint != "number") ? 500 : breakPoint;
-	var siteWidth = $(document).width();
-	var lastSiteWidth = null;
-	var navWidth = mainUL.width();
-	var usingExtraDropdown = false;
-	
-	//listener for screen width
-	$(window).resize(function() {
-		siteWidth = $(document).width();
-		navWidth = mainUL.width();
-		checkNavType();
-		lastSiteWidth = siteWidth;
-	});
-	
-	//toggle nav when nav control is clicked
-	navControl.on('click', function() {
-	    event.preventDefault();
+    var siteWidth = $(document).width();
+    var lastSiteWidth = null;
+    var navWidth = mainUL.width();
+    var usingExtraDropdown = false;
+    
+    //listener for screen width
+    $(window).resize(function() {
+        siteWidth = $(document).width();
+        navWidth = mainUL.width();
+        checkNavType();
+        lastSiteWidth = siteWidth;
+    });
+    
+    //toggle nav when nav control is clicked
+    navControl.on('click', function(event) {
+        event.preventDefault();
         toggleNav();
     });
-	
-	//check if to use mobile nav or not
+    
+    //check if to use mobile nav or not
     checkNavType();
     
     //added a extra dropdown if not already there
@@ -87,28 +94,28 @@ ResponsiveNav = function(nav, breakPoint)
         
         mainUL.append(LIsToMove);
     }
-	
+    
     //check if to use mobile nav or not
     function checkNavType()
     {
         if(siteWidth != lastSiteWidth)
         {
-        	if(siteWidth >= breakPoint)
-        	{
-        	    navControl.hide();
-        	    mainUL.show();
-        	}
-        	else {
-        	    navControl.show();
-        	    mainUL.hide();
-        	}
-        	
-        	resetExtraDropdown();
-        	checkLIsFit();
+            if(siteWidth >= breakPoint)
+            {
+                navControl.hide();
+                mainUL.show();
+            }
+            else {
+                navControl.show();
+                mainUL.hide();
+            }
+            
+            resetExtraDropdown();
+            checkLIsFit();
         }
     }
-	
-	//open or close nav
+    
+    //open or close nav
     function toggleNav()
     {   
         mainUL.slideToggle();
