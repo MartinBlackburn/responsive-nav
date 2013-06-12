@@ -28,7 +28,7 @@ Feel free to use this in any of your own projects (commercial or not), just be k
         </div>
             
         <ul>
-            <li class="active"><a href="#">Link</a>
+            <li><a href="#">Link</a>
             <li>
                 <a href="">Link <span>&#9662;</span></a>
                     <ul class="dropdown">
