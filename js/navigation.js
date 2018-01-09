@@ -2,7 +2,7 @@
 Responsive navigation written by Martin Blackburn.
 www.martinblackburn.co.uk
 
-Freel free to use this for your own projects, just be nice and link back here, or my site :)
+Feel free to use this for your own projects, just be nice and link back here, or my site :)
 */
 
 ResponsiveNav = function(nav, breakPoint) 
